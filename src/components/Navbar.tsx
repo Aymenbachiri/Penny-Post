@@ -7,6 +7,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import { MenuIcon } from "@/lib/icons/MenuIcon";
 import { CloseIcon } from "@/lib/icons/CloseIcon";
 import { MyImage } from "./common/MyImage";
+import { cn } from "@/lib/utils/utils";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -24,12 +25,24 @@ export function Navbar() {
       animate={
         scrolled
           ? {
-              backgroundColor: "#ffffff",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              backgroundColor: "var(--background)",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
             }
-          : { backgroundColor: "transparent", boxShadow: "none" }
+          : {
+              backgroundColor: "transparent",
+              boxShadow: "none",
+            }
       }
-      className="fixed z-50 w-full px-6 py-4"
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+      className={cn(
+        "fixed z-50 w-full px-6 py-4 transition duration-200",
+        scrolled && "shadow-md",
+        scrolled && "bg-white dark:bg-black",
+        scrolled && "dark:shadow-[0_2px_4px_rgba(255,255,255,0.1)]",
+      )}
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-between">

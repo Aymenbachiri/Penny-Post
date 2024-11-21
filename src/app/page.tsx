@@ -1,4 +1,11 @@
+import Body from "@/components/Body";
+import Features from "@/components/Features";
+
 export default function Home() {
-  throw new Error("");
-  return <main className="flex items-center justify-center"></main>;
+  return (
+    <>
+      <Body />
+      <Features />
+    </>
+  );
 }
