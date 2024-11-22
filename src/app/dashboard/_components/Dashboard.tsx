@@ -17,7 +17,7 @@ export async function Dashboard() {
   return (
     <main className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {userPosts.map((post) => (
-        <DashboardItem key={post.id} post={post} />
+        <DashboardItem key={post.id} post={post} user={user} />
       ))}
     </main>
   );

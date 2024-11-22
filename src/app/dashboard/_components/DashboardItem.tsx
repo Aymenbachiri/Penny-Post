@@ -1,10 +1,15 @@
 import { MyLink } from "@/components/common/MyLink";
-import { EditIcon } from "@/lib/icons/EditIcon";
 import type { post } from "@/lib/types/types";
 import { formatDate } from "@/lib/utils/utils";
 import { DeletePostBtn } from "./DeletePostBtn";
+import { EditPostModal } from "./EditPostModal";
 
-export function DashboardItem({ post }: { post: post }) {
+type Props = {
+  post: post;
+  user: { name: string };
+};
+
+export function DashboardItem({ post, user }: Props) {
   const { createdAt, description, imageUrl, title, id } = post;
 
   return (
@@ -32,16 +37,14 @@ export function DashboardItem({ post }: { post: post }) {
                 </p>
                 <div className="flex flex-wrap items-center justify-between">
                   <MyLink
-                    href="/"
+                    href={`/posts/${id}`}
                     className="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0"
                   >
                     See More
                   </MyLink>
                   <section className="flex items-center justify-center gap-2">
                     <DeletePostBtn id={id} />
-                    <button className="inline-flex items-center text-sm leading-none text-gray-400">
-                      <EditIcon />
-                    </button>
+                    <EditPostModal post={post} user={user} />
                   </section>
                 </div>
               </div>
