@@ -6,7 +6,7 @@ export function PostItem({ post }: { post: post }) {
   return (
     <MyLink
       key={post.id}
-      href={post.id}
+      href={`/posts/${post.id}`}
       aria-label="Article"
       className="overflow-hidden rounded bg-white transition-shadow duration-300"
     >

@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import Posts from "../Posts";
+import { PostsFallback } from "../PostsFallback";
 
 export default function PostsPage() {
   return (
@@ -14,7 +16,9 @@ export default function PostsPage() {
           your passion for writing.
         </p>
       </section>
-      <Posts />
+      <Suspense fallback={<PostsFallback />}>
+        <Posts />
+      </Suspense>
     </main>
   );
 }
