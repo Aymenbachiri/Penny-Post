@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export function useNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [shadow, setShadow] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -26,5 +27,18 @@ export function useNavbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return { isOpen, setIsOpen, scrolled, pathname };
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+
+    return () => window.removeEventListener("scroll", handleShadow);
+  }, []);
+
+  return { isOpen, setIsOpen, scrolled, pathname, shadow };
 }
