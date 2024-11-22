@@ -1,4 +1,4 @@
-import SinglePost from "@/components/pages/SinglePost";
+import SinglePostPage from "@/components/pages/SinglePostPage";
 import { getAllPosts } from "@/lib/helpers/getAllPosts";
 import { post } from "@/lib/types/types";
 import { notFound } from "next/navigation";
@@ -13,5 +13,5 @@ export async function generateStaticParams() {
 }
 
 export default function page({ params }: { params: Params }) {
-  return <SinglePost params={params} />;
+  return <SinglePostPage params={params} />;
 }
