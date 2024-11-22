@@ -10,24 +10,10 @@ export default function NewPostForm() {
   // Log when the component renders
   console.log("NewPostForm rendered");
 
-  const a = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submit event triggered");
-
-    // Log the registration method to ensure it's working
-    console.log("Register function:", register);
-
-    // Log the errors to see if there are validation issues
-    console.log("Current errors:", errors);
-
-    // Log the data being passed to handleSubmit
-    handleSubmit((data) => {
-      console.log("Form submitted with data:", data); // Log the data submitted to handleSubmit
-    });
-  };
+  // Set the author field dynamically based on user.name
 
   return (
-    <form onSubmit={a} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <FormField
         label="Post title"
         name="title"
@@ -36,7 +22,7 @@ export default function NewPostForm() {
         placeholder="Enter the title of the post"
       />
       <FormField
-        label="description"
+        label="Description"
         type="text"
         name="description"
         placeholder="Enter the description of the post"
@@ -51,6 +37,15 @@ export default function NewPostForm() {
         registration={register("imageUrl")}
         error={errors.imageUrl}
       />
+      {/* <FormField
+        label="Author"
+        type="text"
+        name="author"
+        placeholder="Enter the author name"
+        registration={register("author")}
+        error={errors.author}
+        readOnly // Make the author field read-only if you don't want it to be editable
+      /> */}
       <NewPostSubmitFormBtn loading={loading} />
       <button type="submit">Submit</button>
     </form>

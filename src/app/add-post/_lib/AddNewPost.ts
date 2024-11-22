@@ -44,14 +44,20 @@ export function AddNewPost() {
   };
 
   const onSubmit = async (data: BlogPost) => {
+    console.log("onSubmit called with data:", data);
+    console.log("User object:", user);
+
+    const authorName = String(user?.name).trim();
+    console.log("Author name length:", authorName.length);
+
     const postData = {
       title: data.title,
       description: data.description,
       imageUrl: data.imageUrl,
-      author: String(user?.name).trim(),
+      author: authorName,
     };
 
-    console.log("Submitting post data:", data);
+    console.log("Post data before submission:", postData);
 
     setLoading(true);
     try {
@@ -63,18 +69,17 @@ export function AddNewPost() {
       });
 
       console.log("Post added successfully");
-
       reset();
     } catch (error) {
       console.error("Post addition error:", error);
       toast.error("An unexpected error occurred");
     } finally {
       setLoading(false);
-      router.push("/dashboard");
+      //router.push("/dashboard");
     }
   };
 
-  console.log("Returning form handlers and state from AddNewPost");
+  console.log("Current errors:", errors);
 
   return {
     register,
