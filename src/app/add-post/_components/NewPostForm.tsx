@@ -7,11 +7,6 @@ import { NewPostSubmitFormBtn } from "./NewPostSubmitFormBtn";
 export default function NewPostForm() {
   const { register, handleSubmit, errors, loading } = AddNewPost();
 
-  // Log when the component renders
-  console.log("NewPostForm rendered");
-
-  // Set the author field dynamically based on user.name
-
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <FormField
@@ -23,7 +18,7 @@ export default function NewPostForm() {
       />
       <FormField
         label="Description"
-        type="text"
+        type="textarea"
         name="description"
         placeholder="Enter the description of the post"
         registration={register("description")}
@@ -37,17 +32,8 @@ export default function NewPostForm() {
         registration={register("imageUrl")}
         error={errors.imageUrl}
       />
-      {/* <FormField
-        label="Author"
-        type="text"
-        name="author"
-        placeholder="Enter the author name"
-        registration={register("author")}
-        error={errors.author}
-        readOnly // Make the author field read-only if you don't want it to be editable
-      /> */}
+
       <NewPostSubmitFormBtn loading={loading} />
-      <button type="submit">Submit</button>
     </form>
   );
 }

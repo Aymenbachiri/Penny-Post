@@ -19,6 +19,7 @@ export function PostItem({ post }: { post: post }) {
           }
           className="h-64 w-full rounded object-cover"
           alt={post.title || "post image"}
+          loading="eager"
         />
       </section>
       <div className="py-5">

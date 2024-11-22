@@ -48,7 +48,7 @@ export function FormField({
             {...registration}
             id={name}
             name={name}
-            className={`${className} min-h-[200px]`}
+            className={`${className} min-h-[200px] resize-none`}
             placeholder={placeholder}
           />
         );
