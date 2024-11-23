@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "TaskTide Home - Task Management";
+export const alt = "Penny Post Home - Blog app";
 
 export const size = {
   width: 1200,

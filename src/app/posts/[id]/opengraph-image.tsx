@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Job One - Job Details";
+export const alt = "Penny Post - post Details";
 export const size = {
   width: 800,
   height: 530,
