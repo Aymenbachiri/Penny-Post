@@ -10,6 +10,7 @@ import { MyImage } from "./common/MyImage";
 import { cn } from "@/lib/utils/utils";
 import { ProfileMenu } from "./ProfileMenu";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { MobileProfileMenu } from "./MobileProfileMenu";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -95,10 +96,16 @@ export function Navbar() {
             <section className="hidden items-center justify-center gap-3 md:flex">
               <ThemeSwitch />
               {user && <ProfileMenu />}
+              {!user && <MyLink href="/api/auth/login">Login</MyLink>}
             </section>
             <div className="flex items-center justify-center gap-3">
-              <section className="flex md:hidden">
+              <section className="flex items-center justify-between gap-2 md:hidden">
                 <ThemeSwitch />
+                {user ? (
+                  <MobileProfileMenu />
+                ) : (
+                  <MyLink href="/api/auth/login">Login</MyLink>
+                )}
               </section>
               <motion.button
                 whileHover={{ scale: 1.05 }}
