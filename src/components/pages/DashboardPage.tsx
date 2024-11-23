@@ -2,7 +2,7 @@ import { Dashboard } from "@/app/dashboard/_components/Dashboard";
 import { DashboardItemFallback } from "@/app/dashboard/_components/DashboardItemFallback";
 import { Suspense } from "react";
 
-export default async function DashboardPage() {
+export default function DashboardPage() {
   return (
     <main className="mx-auto min-h-screen max-w-7xl p-4 pt-[15%]">
       <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">

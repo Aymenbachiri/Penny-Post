@@ -8,16 +8,17 @@ import { MenuIcon } from "@/lib/icons/MenuIcon";
 import { CloseIcon } from "@/lib/icons/CloseIcon";
 import { MyImage } from "./common/MyImage";
 import { cn } from "@/lib/utils/utils";
+import { ProfileMenu } from "./ProfileMenu";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Posts", path: "/posts" },
-  { name: "Services", path: "/services" },
-  { name: "Contact", path: "/contact" },
 ];
 
 export function Navbar() {
   const { isOpen, setIsOpen, scrolled, pathname, shadow } = useNavbar();
+  const { user } = useUser();
 
   return (
     <header className="z-50" style={{ zIndex: 100 }}>
@@ -91,8 +92,9 @@ export function Navbar() {
                 </motion.div>
               ))}
             </nav>
-            <section className="hidden md:flex">
+            <section className="hidden items-center justify-center gap-3 md:flex">
               <ThemeSwitch />
+              {user && <ProfileMenu />}
             </section>
             <div className="flex items-center justify-center gap-3">
               <section className="flex md:hidden">
