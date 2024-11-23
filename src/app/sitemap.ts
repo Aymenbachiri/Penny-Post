@@ -5,9 +5,9 @@ import { notFound } from "next/navigation";
 
 const staticRoutes = [
   { path: "", lastModified: "2024-11-22T10:54:00.000Z" },
-  { path: "/jobs/new", lastModified: "2024-11-22T10:54:00.000Z" },
-  { path: "/signin", lastModified: "2024-11-22T10:54:00.000Z" },
-  { path: "/signup", lastModified: "2024-11-22T10:54:00.000Z" },
+  { path: "/posts", lastModified: "2024-11-22T10:54:00.000Z" },
+  { path: "/dashboard", lastModified: "2024-11-22T10:54:00.000Z" },
+  { path: "/add-post", lastModified: "2024-11-22T10:54:00.000Z" },
 ];
 
 async function fetchPostIds(): Promise<{ id: string }[]> {
@@ -21,7 +21,7 @@ async function fetchPostIds(): Promise<{ id: string }[]> {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = staticRoutes.map((route) => ({
-    url: `https://onejobs.vercel.app${route.path}`,
+    url: `https://pennypost.vercel.app${route.path}`,
     lastModified: route.lastModified,
     changeFrequency: "weekly" as const,
     priority: route.path === "" ? 1 : 0.8,
@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postIds = await fetchPostIds();
 
   const postRoutes = postIds.map(({ id }) => ({
-    url: `https://oneposts.vercel.app/posts/${id}`,
+    url: `https://pennypost.vercel.app/posts/${id}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
