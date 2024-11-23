@@ -2,7 +2,7 @@ import { MyLink } from "@/components/common/MyLink";
 import type { post } from "@/lib/types/types";
 import { formatDate } from "@/lib/utils/utils";
 import { DeletePostBtn } from "./DeletePostBtn";
-import { EditPostModal } from "./EditPostModal";
+import { EditPost } from "./EditPost";
 
 type Props = {
   post: post;
@@ -44,7 +44,7 @@ export function DashboardItem({ post, user }: Props) {
                   </MyLink>
                   <section className="flex items-center justify-center gap-2">
                     <DeletePostBtn id={id} />
-                    <EditPostModal post={post} user={user} />
+                    <EditPost post={post} user={user} />
                   </section>
                 </div>
               </div>
