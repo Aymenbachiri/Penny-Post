@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   const posts: post[] = await getAllPosts();
   if (!posts) return notFound();
 
-  return posts.map((post) => ({ id: post.id }));
+  return posts.map((post) => ({ id: post._id }));
 }
 
 export default function page({ params }: { params: Params }) {

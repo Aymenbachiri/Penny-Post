@@ -1,1 +1,1 @@
-export const API_URL = "https://blog-app-backend-h2tz.onrender.com/api/posts";
+export const API_URL = "https://blog-app-backend-express.vercel.app/api/posts";
